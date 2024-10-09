@@ -20,6 +20,8 @@ const formEl = document.querySelector('form')
 const numberKmInputEl = document.getElementById('numberKm')
 // select the traveler age
 const numberAgeInputEl = document.getElementById('travelerAge')
+// select the card
+const cardEl = document.querySelector('.card')
 
 // print in console the variables
 console.log(formEl, numberAgeInputEl, numberKmInputEl);
@@ -36,12 +38,12 @@ formEl.addEventListener('submit', function(e) {
     if (numberKm > 0 && travelerAge > 0) {
 
         // stamp the km in console
-        const yourKm = `Km: ${numberKm}`;
-        console.log(yourKm);
+        const yourKm = `${numberKm}`;
+        console.log(`Km: ${yourKm}€`);
         
         // stamp the age in console
-        const yourAge = `Età: ${travelerAge}`;
-        console.log(yourAge);
+        const yourAge = `${travelerAge}`;
+        console.log(`Età: ${yourAge}€`);
         
         // Now set up the rules to find out the final price
         
@@ -50,6 +52,28 @@ formEl.addEventListener('submit', function(e) {
         // stamp the final price without discount
         console.log(`Prezzo totale: ${costKm}€`);
         
+        // show the list group
+        const listGroupEl = `
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <span> <strong>Chilometri:</strong> ${yourKm}</span>
+                </li>
+                <li class="list-group-item">
+                    <span> <strong>Età del viaggiatore:</strong> ${yourAge}</span>
+                </li>
+                <li class="list-group-item">
+                    <span> <strong>Prezzo totale:</strong> ${costKm}€</span>
+                </li>      
+            </ul>
+        `
+        console.log(listGroupEl);
+
+        // add html to element card
+        cardEl.insertAdjacentHTML('beforeend', listGroupEl)
+
+        // select the list group
+        const ulEl = document.querySelector('ul')
+
         // Conditions for access to discount
         // Second rule: if the user age is minor than 18, apply a discount to costKm
         if (travelerAge < 18) {
@@ -61,6 +85,20 @@ formEl.addEventListener('submit', function(e) {
             const finalPrice = priceDiscounted.toFixed(2);
             // stamp the final price discounted
             console.log(`Prezzo totale scontato: ${finalPrice}€`);
+            
+            // show more list group item
+            const listGroupItemEl = `
+                <li class="list-group-item">
+                    <span> <strong>Sconto applicato:</strong> -${discountAmount}€</span>
+                </li> 
+                <li class="list-group-item">
+                    <span> <strong>Prezzo totale scontato:</strong> ${finalPrice}€</span>
+                </li>  
+            `   
+            console.log(listGroupItemEl);
+
+            // add html to list group element
+            ulEl.insertAdjacentHTML('beforeend', listGroupItemEl)
         } 
         // Third rule: if the user age is higher than 65, apply a discount to costKm
         else if (travelerAge > 65){
@@ -72,10 +110,26 @@ formEl.addEventListener('submit', function(e) {
             const finalPrice = priceDiscounted.toFixed(2);
             // stamp the final price discounted
             console.log(`Prezzo totale scontato: ${finalPrice}€`);
+
+            // show more list group item
+            const listGroupItemEl = `
+                <li class="list-group-item">
+                    <span> <strong>Sconto applicato:</strong> -${discountAmount}€</span>
+                </li> 
+                <li class="list-group-item">
+                    <span> <strong>Prezzo totale scontato:</strong> ${finalPrice}€</span>
+                </li>  
+            `   
+            console.log(listGroupItemEl);
+
+            // add html to list group element
+            ulEl.insertAdjacentHTML('beforeend', listGroupItemEl)
         } 
     
     } else{
         console.log('Dati non validi');
+
+        // show an alert 
     }
     
 })

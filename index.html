@@ -15,34 +15,41 @@
 </head>
 <body>
     
-    <div class="container">
-        <form class="row g-3 needs-validation py-5" novalidate>
-            <div class="col-6">
-                <label for="numeroKm" class="form-label">
-                    <span>Numero Chilometri</span>
-                </label>
-                <input type="number" id="numeroKm" class="form-control" aria-describedby="numberHelpBlock" min="1" placeholder="Es. 256">
-                <div id="numberHelpBlock" class="form-text">
-                Inserisci qui il numero di chilometri che intendi percorrere durante il viaggio.
-                </div>
+    <div class="container w-100 h-100 py-5">
+        <h1 class="pb-3 text-center text-sm-start">Quanto costa il tuo viaggio?</h1>
+        <div class="card">
+            <div class="card-body" id="card_top">
+                <form class="row g-3 needs-validation py-2" novalidate>
+                    <div class="col-12 col-md-6">
+                        <label for="numberKm" class="form-label">
+                            <span>Numero Chilometri</span>
+                        </label>
+                        <input type="number" id="numberKm" class="form-control" aria-describedby="numberHelpBlock" placeholder="Es. 256">
+                        <div id="numberHelpBlock" class="form-text">
+                        Inserisci qui il numero di chilometri previsti per il viaggio.
+                        </div>
+                    </div>
+                    <!-- /numero chilometri -->
+                    <div class="col-12 col-md-6">
+                        <label for="travelerAge" class="form-label">
+                            <span>Età</span>
+                        </label>
+                        <input type="number" id="travelerAge" class="form-control" aria-describedby="numberHelpBlock" placeholder="Es. 18">
+                        <div id="numberHelpBlock" class="form-text">
+                        Inserisci qui l'età del viaggiatore.
+                        </div>
+                    </div>
+                    <!-- /età -->
+                    <div class="col-12 d-flex justify-content-center justify-content-sm-end">
+                      <button class="btn btn-primary col-12 col-sm-4" type="submit">Calcola il costo</button>
+                    </div>
+                    <!-- /tasto submit -->
+                </form>
+                <!-- /form -->
             </div>
-            <!-- /numero chilometri -->
-            <div class="col-6">
-                <label for="age" class="form-label">
-                    <span>Età</span>
-                </label>
-                <input type="number" id="age" class="form-control" aria-describedby="numberHelpBlock" min="1" placeholder="Es. 18">
-                <div id="numberHelpBlock" class="form-text">
-                Inserisci qui l'età del viaggiatore.
-                </div>
-            </div>
-            <!-- /età -->
-            <div class="col-12">
-              <button class="btn btn-primary" type="submit">Calcola il costo</button>
-            </div>
-            <!-- /tasto submit -->
-          </form>
-          <!-- /form -->
+            
+        </div>
+        <!-- /card -->
     </div>
 
 

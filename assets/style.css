@@ -5,3 +5,12 @@
     /* background-color: red; */ 
 }
 
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(178, 226, 238, 0.747);
+}
+
+#card_top{
+
+}
