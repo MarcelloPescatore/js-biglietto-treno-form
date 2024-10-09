@@ -22,6 +22,8 @@ const numberKmInputEl = document.getElementById('numberKm')
 const numberAgeInputEl = document.getElementById('travelerAge')
 // select the card
 const cardEl = document.querySelector('.card')
+// select the alert
+const alertEl = document.querySelector('.alert')
 
 // print in console the variables
 console.log(formEl, numberAgeInputEl, numberKmInputEl);
@@ -130,6 +132,7 @@ formEl.addEventListener('submit', function(e) {
         console.log('Dati non validi');
 
         // show an alert 
+        alertEl.style.display = 'inline'
     }
     
 })
