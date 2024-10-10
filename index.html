@@ -22,6 +22,15 @@
         <div class="card">
             <div class="card-body" id="card_top">
                 <form class="row g-3 needs-validation py-2" novalidate>
+                    <div class="col-12">
+                        <label for="travelerName" class="form-label">
+                            <span>Nome e cognome</span>
+                        </label>
+                        <input type="text" id="travelerName" class="form-control" aria-describedby="textHelpBlock" placeholder="Es. Mario Rossi">
+                        <div id="textHelpBlock" class="form-text">
+                        Inserisci qui il nome e cognome del viaggiatore.
+                        </div>
+                    </div>
                     <div class="col-12 col-md-6">
                         <label for="numberKm" class="form-label">
                             <span>Numero Chilometri</span>
@@ -42,9 +51,10 @@
                         </div>
                     </div>
                     <!-- /età -->
-                    <div class="col-12 d-flex flex-column align-items-center align-items-sm-end">
-                      <button class="btn btn-primary col-12 col-sm-4 mb-4" type="submit">Calcola il costo</button>
-                      <div class="alert alert-warning col-12 col-sm-12 mb-0" role="alert" style="display: none;">
+                    <div class="col-12 d-flex flex-wrap justify-content-md-evenly">
+                      <button class="btn btn-primary col-12 col-md-4 col-md-4 my-2" type="submit">Calcola il costo</button>
+                      <button class="btn btn-danger col-12 col-md-4 col-md-4 my-2" id="annulla">Annulla</button>
+                      <div class="alert alert-warning col-12 mb-0" role="alert" style="display: none;">
                         <i class="fa-solid fa-triangle-exclamation pe-2" style="color: #ed8207;"></i>
                         <span>I dati inseriti non sono validi</span>
                       </div>

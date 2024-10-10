@@ -16,6 +16,8 @@
 
 // select the form
 const formEl = document.querySelector('form')
+// select the name
+const travelerName = document.getElementById('travelerName')
 // select the number of kilometers
 const numberKmInputEl = document.getElementById('numberKm')
 // select the traveler age
@@ -26,7 +28,7 @@ const cardEl = document.querySelector('.card')
 const alertEl = document.querySelector('.alert')
 
 // print in console the variables
-console.log(formEl, numberAgeInputEl, numberKmInputEl);
+// console.log(formEl, numberAgeInputEl, numberKmInputEl);
 
 
 // Create an event listner
@@ -34,10 +36,15 @@ formEl.addEventListener('submit', function(e) {
     e.preventDefault();
     const travelerAge = e.target.travelerAge.value;
     const numberKm = e.target.numberKm.value;
+    const travelerName = e.target.travelerName.value
 
     console.log(numberKm, travelerAge);
 
-    if (numberKm > 0 && travelerAge > 0) {
+    if (numberKm > 0 && travelerAge > 0 && travelerName.length > 0 && isNaN(travelerName) ) {
+
+        // stamp the traveler name
+        const yourName = `${travelerName}`;
+        console.log(`Km: ${yourName}€`);
 
         // stamp the km in console
         const yourKm = `${numberKm}`;
@@ -58,13 +65,16 @@ formEl.addEventListener('submit', function(e) {
         const listGroupEl = `
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    <span> <strong>Chilometri:</strong> ${yourKm}</span>
+                    <span> <strong>Viaggiatore:</strong> ${yourName}</span>
                 </li>
                 <li class="list-group-item">
                     <span> <strong>Età del viaggiatore:</strong> ${yourAge}</span>
                 </li>
                 <li class="list-group-item">
-                    <span> <strong>Prezzo totale:</strong> ${costKm}€</span>
+                    <span> <strong>Chilometri:</strong> ${yourKm} km</span>
+                </li>
+                <li class="list-group-item">
+                    <span> <strong>Prezzo totale:</strong> ${costKm} €</span>
                 </li>      
             </ul>
         `
@@ -91,10 +101,10 @@ formEl.addEventListener('submit', function(e) {
             // show more list group item
             const listGroupItemEl = `
                 <li class="list-group-item">
-                    <span> <strong>Sconto applicato:</strong> -${discountAmount}€</span>
+                    <span> <strong>Sconto applicato:</strong> -${discountAmount} €</span>
                 </li> 
                 <li class="list-group-item">
-                    <span> <strong>Prezzo totale scontato:</strong> ${finalPrice}€</span>
+                    <span> <strong>Prezzo totale scontato:</strong> ${finalPrice} €</span>
                 </li>  
             `   
             console.log(listGroupItemEl);
@@ -116,10 +126,10 @@ formEl.addEventListener('submit', function(e) {
             // show more list group item
             const listGroupItemEl = `
                 <li class="list-group-item">
-                    <span> <strong>Sconto applicato:</strong> -${discountAmount}€</span>
+                    <span> <strong>Sconto applicato:</strong> -${discountAmount} €</span>
                 </li> 
                 <li class="list-group-item">
-                    <span> <strong>Prezzo totale scontato:</strong> ${finalPrice}€</span>
+                    <span> <strong>Prezzo totale scontato:</strong> ${finalPrice} €</span>
                 </li>  
             `   
             console.log(listGroupItemEl);
@@ -135,6 +145,14 @@ formEl.addEventListener('submit', function(e) {
         alertEl.style.display = 'inline'
     }
     
+});
+
+// button refresh page
+let annulla = document.getElementById("annulla")
+
+annulla.addEventListener('click', function() {
+    
+    location.reload();
 })
 
 
